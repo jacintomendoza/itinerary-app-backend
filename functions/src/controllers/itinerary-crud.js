@@ -18,13 +18,13 @@ const getItineraryById = handleRequest(async (body, id) => {
   return data;
 });
 
-// const putItineraryById = handleRequest(async (body, id) => {
-//   const data = await Itinerary.findByIdAndUpdate(id, body, {
-//     new: true,
-//   });
-//   if (!data) throw new Error("Itinerary not found");
-//   return data;
-// });
+const putItineraryById = handleRequest(async (body, id) => {
+  const data = await Itinerary.findByIdAndUpdate(id, body, {
+    new: true,
+  });
+  if (!data) throw new Error("Itinerary not found");
+  return data;
+});
 
 const deleteItineraryById = handleRequest(async (body, id) => {
   const data = await Itinerary.findByIdAndDelete(id);
@@ -36,6 +36,6 @@ module.exports = {
   postItinerary,
   getItinerary,
   getItineraryById,
-  // putItineraryById,
+  putItineraryById,
   deleteItineraryById,
 };
