@@ -9,7 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "mongodb": "^4.13.0",
-    "mongoose": "^6.8.2"
+    "mongoose": "^6.8.2",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.22.1"
   }
 }

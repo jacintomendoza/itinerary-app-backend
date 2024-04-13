@@ -28,11 +28,11 @@ exports.handler = async (event, context, callback) => {
   }
 };
 
-const PATH_REGEX = /^\/(\w+)(?:\/(\w+))?/;
+const PATH_REGEX = /^\/(\w+)(?:\/(\w+))(?:\/([\w-]+))?/;
 
 const getControllerAndMethod = (path, httpMethod, headers) => {
-  // Extract the resource and id from the path
-  const [, resource, id] = path.replace("/api", "").match(PATH_REGEX);
+  // Extract the resource, id, and action from the path
+  const [, resource, action, id] = path.replace("/api", "").match(PATH_REGEX);
   // Get the controller for the given resource
   const controller = controllers[`${resource}Controller`];
 
@@ -43,19 +43,24 @@ const getControllerAndMethod = (path, httpMethod, headers) => {
     };
   }
 
-  // Construct the method name based on the HTTP method and resource name
-  const method = `${httpMethod.toLowerCase()}${resource[0].toUpperCase()}${resource.slice(1)}`;
+  // Construct the method name based on the HTTP method, resource name, and action
+  // let method;
+  // if (id && action) {
+  //   method = `${httpMethod.toLowerCase()}${resource[0].toUpperCase()}${resource.slice(1)}${action}`;
+  // } else {
+  //   method = `${httpMethod.toLowerCase()}${resource[0].toUpperCase()}${resource.slice(1)}`;
+  // }
 
   if (id) {
     return {
       controller,
-      method: method + "ById",
-      id,
+      method: action,
+      id
+    };
+  } else {
+    return {
+      controller,
+      method: action,
     };
   }
-
-  return {
-    controller,
-    method: method,
-  };
 };

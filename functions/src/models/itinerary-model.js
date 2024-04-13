@@ -11,7 +11,7 @@ const itinerarySchema = new mongoose.Schema({
   days: [
     {
       id: {
-        type: Number,
+        type: String,
         required: true
       },
       location: {
@@ -38,7 +38,7 @@ const itinerarySchema = new mongoose.Schema({
         }
       ]
     }
-  ]
+  ],
 });
 
 module.exports = mongoose.model("Itinerary", itinerarySchema);
