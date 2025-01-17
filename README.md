@@ -14,13 +14,25 @@ CRUD app for https://github.com/jacintomendoza/itinerary-app
 ## API Endpoints
 The following endpoints are available for interacting with the MongoDB database:
 
-- POST /api/itinerary: Create a new itinerary
-- GET /api/itinerary: Get a list of all itinerary
-- GET /api/itinerary/:id: Get a single itinerary by its ID
-- PUT /api/itinerary/:id: Update a itinerary by its ID
-- DELETE /api/itinerary/:id: Delete a itinerary by its ID
+POST
+- /api/itinerary/postItinerary: Create a new itinerary
+
+GET
+- /api/itinerary/getItinerary: Get a list of all itinerary
+- /api/itinerary/getItineraryById/:id: Get a single itinerary by its ID
+
+PUT
+- /api/itinerary/putItineraryById/:id: Update a itinerary by its ID
+- /api/itinerary/putDayByItineraryId/:id: Update a itinerary day by its ID
+- /api/itinerary/putPlanByDayId/:id: Update a itinerary plan by its ID
+
+DELETE
+- /api/itinerary/deleteItineraryById/:id: Delete a itinerary by its ID
 
 ## Dependencies
 - MongoDB Atlas
 - Netlify Functions
 - Mongoose: MongoDB
+
+## Netlify Commands
+- netlify deploy --prod

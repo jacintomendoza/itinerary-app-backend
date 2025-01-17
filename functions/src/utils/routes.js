@@ -43,14 +43,6 @@ const getControllerAndMethod = (path, httpMethod, headers) => {
     };
   }
 
-  // Construct the method name based on the HTTP method, resource name, and action
-  // let method;
-  // if (id && action) {
-  //   method = `${httpMethod.toLowerCase()}${resource[0].toUpperCase()}${resource.slice(1)}${action}`;
-  // } else {
-  //   method = `${httpMethod.toLowerCase()}${resource[0].toUpperCase()}${resource.slice(1)}`;
-  // }
-
   if (id) {
     return {
       controller,

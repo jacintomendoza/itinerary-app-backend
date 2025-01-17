@@ -3,17 +3,13 @@ const mongoose = require("mongoose");
 const itinerarySchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true
+    required: false // TODO: Change to true
   },
   year: {
     type: Number
   },
   days: [
     {
-      id: {
-        type: String,
-        required: true
-      },
       location: {
         type: String,
         required: true
@@ -33,6 +29,9 @@ const itinerarySchema = new mongoose.Schema({
             required: true
           },
           url: {
+            type: String
+          },
+          fileName: {
             type: String
           }
         }
