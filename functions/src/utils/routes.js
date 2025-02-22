@@ -8,6 +8,11 @@ let _client;
 exports.handler = async (event, context, callback) => {
   // Destructure the event object to get the HTTP method and path
   let { httpMethod, path, body, headers } = event;
+
+  if (httpMethod === "OPTIONS") {
+    return Status.Options(); // This is the helper function handling OPTIONS (see previous response)
+  }
+
   // Call getControllerAndMethod to get the controller and method for the request
   const { controller, method, id } = getControllerAndMethod(path, httpMethod, headers);
 

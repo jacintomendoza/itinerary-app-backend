@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "mongodb": "^4.13.0",
     "mongoose": "^6.8.2",

@@ -4,9 +4,14 @@ const headers = {
   "Access-Control-Allow-Methods": "*",
   "Access-Control-Allow-Headers": "*",
   "Content-Type": "*"
-  // "Access-Control-Allow-Headers": "Content-Type, XMLHttpRequest, Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Authorization, Access-Control-Request-Method, Access-Control-Request-Headers, X-Auth-Token",
-  // "Content-Type": "application/json",
-  // "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+};
+
+const Options = () => {
+  return {
+    statusCode: 204, // No content for OPTIONS request
+    body: "",
+    headers,
+  };
 };
 
 const Success = (data, statusCode = 200) => {
@@ -35,4 +40,5 @@ module.exports = {
   Success,
   Error,
   NotFound,
+  Options
 };
